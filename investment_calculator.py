@@ -8,7 +8,7 @@ class InvestmentCalculator():
         self.amount = 0
         self.annual_interest = 0
         self.year = 0
-        
+
     def enter_data(self):
         while True:
             try:
