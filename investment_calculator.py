@@ -1,8 +1,3 @@
-""" Write a program that asks the user for an amount to invest,
-the annual interest and the number of years, and display the capital
-on the screen obtained in the investment rounded with two decimal places """
-
-
 class InvestmentCalculator():
     def __init__(self):
         self.amount = 0
@@ -19,6 +14,8 @@ class InvestmentCalculator():
                 self.year = int(input("Enter how many years: "))
                 if self.amount < 0 or self.annual_interest < 0 or self.year < 0:
                     print("Enter a valid number")
+                elif self.amount == 0 or self.annual_interest == 0 or self.year == 0 :
+                    print("Only positive numbers")    
                 break
             except ValueError:
                 print("You must enter a number")
@@ -28,9 +25,10 @@ class InvestmentCalculator():
 
     def show_result(self):
         total = self.obtain_result()
-        print("Total amount ", round(total, 2))
+        print("Total amount: ", round(total, 2))
 
 
 calculator = InvestmentCalculator()
 calculator.enter_data()
-calculator.show_result()
+if calculator.obtain_result() > 0:
+    calculator.show_result()
